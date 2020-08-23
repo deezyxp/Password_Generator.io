@@ -35,5 +35,13 @@ function getRandomSymbol() {
 
 console.log(getRandomSymbol());
 
+// Password Variables
+
+var passwordLength = 16
+var password = ""
+
+
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
