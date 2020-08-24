@@ -2,7 +2,7 @@
 
 // Write password to the #password input
 
-  const form = document.getElementById('passwordGenerator')
+  const generateButton = document.getElementById('generate')
   const passwordEl = document.getElementById('password');
   const lengthEl = document.getElementById('length');
   const uppercaseEl = document.getElementById('uppercase');
@@ -22,26 +22,25 @@ const symbolchar = arrayFromLowToHigh(33, 47).concat(
   arrayFromLowToHigh(123, 126)
 )
 
-lengthAmountNumber.addEventListener('input', synclength)
-
 
   // Event Listener
-  form.addEventListener('click',()=>{
-    e.preventDefault()
+  generateButton.addEventListener('click',(event)=>{
+    event.preventDefault()
     const length = lengthEl.value;
     const hasLower = lowercaseEl.checked;
     const hasUpper = uppercaseEl.checked;
     const hasNumber = numbersEl.checked;
     const hasSymbol = symbolsEl.checked;
-    const password = generatePassword(length, uppercase, lowercase, numbers, symbols)
-    passwordDisplay.innerText = password
+    const password = generatePassword(length, hasUpper, hasLower, hasNumber, hasSymbol)
+    passwordEl.value = password
   })
 
   function generatePassword(length,  uppercase, lowercase, numbers, symbols) {
-    let charCodes = lowerchar
+    let charCodes = []
     if (uppercase) charCodes = charCodes.concat(upperchar)
     if (symbols) charCodes = charCodes.concat(symbolchar)
-    if (numbers) charCodes = charCodes.concat(symbolchar)
+    if (numbers) charCodes = charCodes.concat(numberchar)
+    if (lowercase) charCodes = charCodes.concat(lowerchar)
 
     const passwordCharacters = []
     for (let i = 0; i < length; i++) {
