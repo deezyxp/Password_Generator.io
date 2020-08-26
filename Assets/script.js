@@ -1,6 +1,6 @@
 // Assignment Code
 
-// Write password to the #password input
+// Global DOM elements for Code for easier access
 
   const generateButton = document.getElementById('generate')
   const passwordEl = document.getElementById('password');
@@ -11,16 +11,17 @@
   const symbolsEl = document.getElementById('symbols');
   const generateEl = document.getElementById('generate');
 
-const upperchar = arrayFromLowToHigh(65, 90)
-const lowerchar = arrayFromLowToHigh(97, 122)
-const numberchar = arrayFromLowToHigh(48, 57)
-const symbolchar = arrayFromLowToHigh(33, 47).concat(
-  arrayFromLowToHigh(58, 64)
-).concat(
-  arrayFromLowToHigh(91, 96)
-).concat(
-  arrayFromLowToHigh(123, 126)
-)
+// Obtaining charcodes array for our Values
+  const upperchar = arrayFromLowToHigh(65, 90)
+  const lowerchar = arrayFromLowToHigh(97, 122)
+  const numberchar = arrayFromLowToHigh(48, 57)
+  const symbolchar = arrayFromLowToHigh(33, 47).concat(
+    arrayFromLowToHigh(58, 64)
+  ).concat(
+    arrayFromLowToHigh(91, 96)
+  ).concat(
+    arrayFromLowToHigh(123, 126)
+  )
 
 
   // Event Listener
